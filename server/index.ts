@@ -1,16 +1,17 @@
 import "dotenv/config";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
+import "./scrape";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
     res.json("Works");
 })
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server on port ${process.env.PORT}...`);
+    console.log(`Server on port http://localhost:${process.env.PORT}...`);
 })
